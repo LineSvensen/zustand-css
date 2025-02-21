@@ -1,9 +1,11 @@
 import { useCart } from "../../store";
 import { RemoveFromCartButton, DecrementButton } from "../Buttons";
+import { useNavigate } from "react-router-dom";
 
 export function Cart() {
   const cartItems = useCart((state) => state.cart);
   const decrementItem = useCart((state) => state.decrementItem);
+  const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -13,6 +15,10 @@ export function Cart() {
   if (cartItems.length === 0) {
     return <h2>Your cart is empty :( </h2>;
   }
+
+  const handleCheckout = () => {
+    navigate("/checkout-success");
+  };
 
   return (
     <div className="p-4">
@@ -42,6 +48,12 @@ export function Cart() {
         ))}
       </ul>
       <div className="font-bold mt-4">Total: {totalPrice.toFixed(2)}</div>
+      <button
+        onClick={handleCheckout}
+        className="bg-green-500 text-white px-4 py-2 mt-4 rounded"
+      >
+        Checkout
+      </button>
     </div>
   );
 }

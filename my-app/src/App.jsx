@@ -3,6 +3,7 @@ import { Layout } from "./component/Layout";
 import { Products } from "./component/routes/Products";
 import { SpecificProduct } from "./component/routes/SpesificProduct";
 import { Cart } from "./component/routes/Cart";
+import { CheckoutSuccess } from "./component/routes/CheckoutSuccess";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "checkout-success",
+        element: <CheckoutSuccess />,
       },
     ],
   },
