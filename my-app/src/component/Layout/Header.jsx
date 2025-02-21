@@ -6,6 +6,7 @@ export function Header() {
       <Link to={"/"}>Rainy days</Link>
       <nav className="flex gap-2 text-blue-600">
         <Link to="/products">Products</Link>
+        <Link to="/cart">Cart</Link>
       </nav>
     </header>
   );
